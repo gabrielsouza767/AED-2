@@ -19,7 +19,7 @@ Aqui registro minha evolução em programação, com foco em **C** e conceitos f
 ## 🛠️ Tecnologias e Ferramentas
 
 - Linguagem: **C**  
-- IDE: **Code::Blocks**  
+- IDE: **VisualCode**  
 - Controle de Versão: **Git & GitHub**  
 - Sistema Operacional: Windows/Linux  
 
