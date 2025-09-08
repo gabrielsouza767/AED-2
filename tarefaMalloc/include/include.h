@@ -68,6 +68,9 @@ void exemplo_leitura_linha(FILE *fp, int tmp)
     }
     fclose(arquivo);
     for (int i = 0; i < tmp; i++)
+    {
+        free(alunos[i]->notas);
         free(alunos[i]);
+    }
     free(alunos);
 }
