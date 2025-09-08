@@ -1,0 +1,4 @@
+Nome do aluno: Joao Silva , nota 1 : 7.50 nota 2 : 8.00 nota 3 : 6.00  e media do aluno: 7.17 
+Nome do aluno: Maria Santos , nota 1 : 9.00 nota 2 : 9.50 nota 3 : 10.00  e media do aluno: 9.50 
+Nome do aluno: Carlos Souza , nota 1 : 5.00 nota 2 : 6.50 nota 3 : 7.00  e media do aluno: 6.17 
+Nome do aluno: Ana Clara , nota 1 : 8.50 nota 2 : 9.00 nota 3 : 8.00 nota 4 : 5.00  e media do aluno: 7.62 
