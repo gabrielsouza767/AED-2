@@ -1,0 +1,14 @@
+Tamanho dos dados: 4 , tempo do QuickSort: 0.00000000000000000000 , tempo do MergeSort: 0.00000000000000000000 , tempo do BubbleSort: 0.00000000000000000000 
+Tamanho dos dados: 8 , tempo do QuickSort: 0.00000000000000000000 , tempo do MergeSort: 0.00000000000000000000 , tempo do BubbleSort: 0.00000000000000000000 
+Tamanho dos dados: 16 , tempo do QuickSort: 0.00000000000000000000 , tempo do MergeSort: 0.00000000000000000000 , tempo do BubbleSort: 0.00000000000000000000 
+Tamanho dos dados: 32 , tempo do QuickSort: 0.00000000000000000000 , tempo do MergeSort: 0.00000000000000000000 , tempo do BubbleSort: 0.00000000000000000000 
+Tamanho dos dados: 64 , tempo do QuickSort: 0.00000000000000000000 , tempo do MergeSort: 0.00000000000000000000 , tempo do BubbleSort: 0.00000000000000000000 
+Tamanho dos dados: 128 , tempo do QuickSort: 0.00100000000000000002 , tempo do MergeSort: 0.00000000000000000000 , tempo do BubbleSort: 0.00000000000000000000 
+Tamanho dos dados: 256 , tempo do QuickSort: 0.00000000000000000000 , tempo do MergeSort: 0.00100000000000000002 , tempo do BubbleSort: 0.00300000000000000006 
+Tamanho dos dados: 512 , tempo do QuickSort: 0.00000000000000000000 , tempo do MergeSort: 0.00000000000000000000 , tempo do BubbleSort: 0.01099999999999999936 
+Tamanho dos dados: 1024 , tempo do QuickSort: 0.00100000000000000002 , tempo do MergeSort: 0.00000000000000000000 , tempo do BubbleSort: 0.04100000000000000172 
+Tamanho dos dados: 2048 , tempo do QuickSort: 0.00100000000000000002 , tempo do MergeSort: 0.00000000000000000000 , tempo do BubbleSort: 0.16100000000000000422 
+Tamanho dos dados: 4096 , tempo do QuickSort: 0.00200000000000000004 , tempo do MergeSort: 0.00100000000000000002 , tempo do BubbleSort: 0.66400000000000003464 
+Tamanho dos dados: 8192 , tempo do QuickSort: 0.00500000000000000010 , tempo do MergeSort: 0.00300000000000000006 , tempo do BubbleSort: 2.68000000000000015987 
+Tamanho dos dados: 16384 , tempo do QuickSort: 0.01000000000000000021 , tempo do MergeSort: 0.00600000000000000012 , tempo do BubbleSort: 10.65600000000000058265 
+Tamanho dos dados: 32768 , tempo do QuickSort: 0.02400000000000000050 , tempo do MergeSort: 0.01299999999999999940 , tempo do BubbleSort: 43.56600000000000250111 
