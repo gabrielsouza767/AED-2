@@ -12,7 +12,8 @@ Aqui registro minha evolução em programação, com foco em **C** e conceitos f
 - **Árvores Balanceadas (AVL)** → Equilíbrio automático e complexidade  
 - **Grafos** → Representação em listas/matrizes, BFS e DFS  
 - **Arquivos** → Manipulação e persistência de dados em C  
-- **Alocação Dinâmica** → Uso de ponteiros, `malloc`, `free` e estruturas compostas  
+- **Alocação Dinâmica** → Uso de ponteiros, `malloc`, `free` e estruturas compostas  ]
+- **Algoritmos de Ordenação** → Uso de algoritmos como `BubbleSort`, `QuickSort`,  `MergeSort` e outros  
 
 ---
 
