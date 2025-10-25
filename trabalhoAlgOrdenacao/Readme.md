@@ -29,7 +29,7 @@ Com esses dados, o programa gera:
 
 - **5 relatórios individuais** (um para cada execução);  
 - **1 relatório final** contendo a média dos tempos de ordenação;  
-- **Gráficos comparativos** entre os algoritmos, mostrando o tempo em função do tamanho da entrada.
+- **Gráfico comparativo** entre os algoritmos, mostrando o tempo em função do tamanho da entrada.
 
 ---
 
@@ -49,19 +49,14 @@ Assim, é possível **comprovar empiricamente** que o **BubbleSort**, por ter co
 
 ## 🧠 Conceitos Utilizados
 
-- Alocação dinâmica de memória (`malloc`, `realloc`, `free`);
+- Alocação dinâmica de memória (`malloc`, `free`);
 - Ponteiros e manipulação de vetores de structs;
 - Estruturas (`struct`) para armazenar dados dos alunos;
 - Modularização do código em múltiplos arquivos (`.h` e `.c`);
 - Funções genéricas de ordenação;
 - Medição de tempo com `clock()` (biblioteca `<time.h>`);
-- Escrita e leitura de arquivos de texto (`.txt`);
+- Escrita e leitura de arquivos de texto (`.csv`, `.txt`);
 - Geração e análise de relatórios.
 
 ---
 
-## ⚙️ Execução
-
-1. Compile o projeto (exemplo usando **Code::Blocks** ou terminal):
-   ```bash
-   gcc main.c bubbleSort.c quickSort.c mergeSort.c relatorios.c -o analise -Wall
