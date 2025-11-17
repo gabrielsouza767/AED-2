@@ -45,7 +45,6 @@ Utilizada para:
 - Tela de Game Over
 
 ---
----
 
 ## 🛠 Como Executar o Projeto
 ### **1. Instale o Raylib**
@@ -58,7 +57,7 @@ No Windows, utilize o instalador oficial da Raylib.
 ### **2. Compile o Projeto**
 Manualmente:
 ```
-gcc src/*.c -o snake -lraylib -lm
+gcc src/snake-start.c -o snake -lraylib 
 ```
 
 ### **3. Execute**
