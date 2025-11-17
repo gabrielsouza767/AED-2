@@ -33,12 +33,3 @@ Isso garante operações eficientes, com complexidade média:
 
 ---
 
-## ✨ Representação visual
-
-Exemplo de uma ABB:
-
-       (8)
-     /     \
-  (3)       (10)
- /   \         
-(1) (6) 
