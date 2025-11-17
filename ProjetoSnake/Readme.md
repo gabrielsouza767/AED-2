@@ -45,17 +45,6 @@ Utilizada para:
 - Tela de Game Over
 
 ---
-
-## 📁 Estrutura do Projeto
-```
-📦 snake-game
-├── src/
-│   ├── snake-start.c
-├── assets/
-│   └── gif funcionando
-└── README.md
-```
-
 ---
 
 ## 🛠 Como Executar o Projeto
@@ -67,11 +56,7 @@ sudo apt install libraylib-dev
 No Windows, utilize o instalador oficial da Raylib.
 
 ### **2. Compile o Projeto**
-Com Makefile:
-```
-make
-```
-Ou manualmente:
+Manualmente:
 ```
 gcc src/*.c -o snake -lraylib -lm
 ```
