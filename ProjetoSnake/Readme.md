@@ -23,9 +23,7 @@ Essa estrutura facilita operações como:
 
 ### **✔ Programação Modular em C**
 O código foi dividido em múltiplos arquivos, como:
-- `snake.c` / `snake.h` — gerenciamento da cobra
-- `game.c`  — lógica principal do jogo
-- `main.c` — inicialização e loop principal
+- `snake-start.c` — gerenciamento da cobra e  lógica principal do jogo
 
 ### **✔ Raylib**
 Utilizada para:
