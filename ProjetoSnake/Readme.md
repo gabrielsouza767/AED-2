@@ -123,8 +123,7 @@ MIT License — sinta-se livre para usar, modificar e aprender com este código!
 Se quiser trocar ideia sobre C, Raylib, estrutura de dados ou projetos acadêmicos:
 
 **Gabriel Souza**
-- GitHub: *(coloque aqui)*
-- LinkedIn: *(coloque aqui)*
+- LinkedIn: www.linkedin.com/in/gabriel-oliveira-de-souza-3743352bb
 
 ---
 
