@@ -49,16 +49,10 @@ Utilizada para:
 ## 📁 Estrutura do Projeto
 ```
 📦 snake-game
-├── include/
-│   ├── snake.h
-│   ├── game.h
 ├── src/
-│   ├── main.c
-│   ├── snake.c
-│   ├── game.c
+│   ├── snake-start.c
 ├── assets/
-│   └── (imagens ou fontes opcionais)
-├── Makefile
+│   └── gif funcionando
 └── README.md
 ```
 
