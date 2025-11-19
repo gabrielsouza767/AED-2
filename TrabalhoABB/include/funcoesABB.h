@@ -37,11 +37,10 @@ void LeArquivo(FILE *fp, Pessoa *p)
         int count = 0, i = 0;
         while (ler[count] != ',')
         {
-            recebe[count] = ler[count];
+            p[k].nome[count] = ler[count];
             count++;
         }
-        recebe[count] = '\0';
-        strcpy(p[k].nome, recebe);
+        p[k].nome[count] = '\0';
         count++;
         while (ler[count] != ',')
         {
