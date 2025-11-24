@@ -7,7 +7,7 @@ Este projeto implementa um sistema simples de gerenciamento de pessoas utilizand
 - **Busca eficiente dentro da árvore**
 - **Remoção opcional de um elemento encontrado**
 
-O objetivo do trabalho é praticar conceitos fundamentais de **vetores dinâmicos**, **manipulação de arquivos**, **estruturas encadeadas**, **recursão** e **árvores binárias de busca**.
+O objetivo do trabalho é praticar conceitos fundamentais de **manipulação de arquivos**, **estruturas encadeadas**, **recursão** e **árvores binárias de busca**.
 
 ---
 
