@@ -9,11 +9,22 @@ int main(int argc, char const *argv[])
     ABB tree;
     tree.raiz = NULL;
     Pessoa p;
+    No *pessoaEncontrada= NULL;
     LeArquivo(fp, &p, &tree);
     printf("Digite a idade de quem desejas buscar: ");
     scanf("%d", &idade);
-    No *pessoaEncontrada = buscaABB(tree.raiz, idade);
-    printf(" Nome da pessoa: %s , idade: %d e altura: %.2f", pessoaEncontrada->dado.nome, pessoaEncontrada->dado.idade, pessoaEncontrada->dado.altura);
+    pessoaEncontrada = buscaABB(tree.raiz, idade);
+    if (pessoaEncontrada != NULL)
+    {
+       printf("----------------------------------------\n");
+       printf("Pessoa encontrada! \n");
+       printf("----------------------------------------\n");
+       printf("Nome: %s \n",  pessoaEncontrada->dado.nome);
+       printf("Idade: %d \n",  pessoaEncontrada->dado.idade);
+       printf("Altura: %.2f \n",  pessoaEncontrada->dado.altura);
+    }
+    else
+        printf("Pessoa não encontrada! \n");
     fclose(fp);
     return 0;
 }

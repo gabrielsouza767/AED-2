@@ -22,23 +22,13 @@ Cada linha do arquivo representa:
 nome,altura,idade
 ```
 
-Esses dados são lidos e separados manualmente (via parsing de linha), convertidos para os tipos adequados e enviados para o vetor dinâmico.
+Esses dados são lidos e separados manualmente (via parsing de linha), convertidos para os tipos adequados e enviados para a Árvore Binária de Busca (ABB).
+
 
 ---
 
-### ✔ 2. Vetor Dinâmico  
-Cada pessoa é inicialmente armazenada em um **vetor dinâmico**, que cresce conforme necessário.
-
-Conceitos trabalhados:
-
-- alocação progressiva (`malloc`)
-- controle de tamanho e capacidade
-- custo amortizado de inserções
-
----
-
-### ✔ 3. Estrutura de Dados — ABB  
-Após o carregamento do vetor dinâmico, cada elemento é inserido em uma **Árvore Binária de Busca**, utilizando como chave:
+### ✔ 2. Estrutura de Dados — ABB  
+Após a leitura do arquivo, cada elemento é inserido em uma **Árvore Binária de Busca**, utilizando como chave:
 
 ```
 idade
@@ -52,7 +42,7 @@ Operações implementadas:
 
 ---
 
-### ✔ 4. Busca e Remoção  
+### ✔ 3. Busca e Remoção  
 O usuário informa a **idade** ou o **nome** para procurar uma pessoa na ABB.
 
 Ao encontrar:
@@ -71,17 +61,16 @@ A remoção segue os casos clássicos de uma ABB:
 ## 🗂 **Arquitetura Geral**
 
 ```
-CSV -> Vetor Dinâmico -> ABB -> Busca -> Remoção (opcional)
+CSV -> ABB -> Busca -> Remoção (opcional)
 ```
 
 Fluxo do programa:
 
 1. Ler arquivo CSV linha por linha  
 2. Converter cada linha em uma struct `Pessoa`  
-3. Armazenar no vetor dinâmico  
-4. Inserir cada pessoa na ABB  
-5. Permitir busca eficiente  
-6. Perguntar ao usuário se deseja remover o registro  
+3. Inserir cada pessoa na ABB  
+4. Permitir busca eficiente  
+5. Perguntar ao usuário se deseja remover o registro  
 
 ---
 
@@ -187,7 +176,6 @@ gcc main.c -o programa
 
 ## 🧩 **Possíveis Extensões Futuras**
 
-- Ordenação do vetor antes de enviar à ABB
 - Transformar a ABB em AVL (balanceada)
 - Permitir cadastro manual de novas pessoas
 - Exportar novamente o CSV após remoções
