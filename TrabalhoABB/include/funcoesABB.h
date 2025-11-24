@@ -28,41 +28,6 @@ int QuantPessoas(FILE *fp)
     rewind(fp);
     return cont;
 }
-void LeArquivo(FILE *fp, Pessoa *p)
-{
-    char ler[100], recebe[20];
-    int k = 0;
-    while (fgets(ler, sizeof(ler), fp) != NULL)
-    {
-        int count = 0, i = 0;
-        while (ler[count] != ',')
-        {
-            p[k].nome[count] = ler[count];
-            count++;
-        }
-        p[k].nome[count] = '\0';
-        count++;
-        while (ler[count] != ',')
-        {
-            recebe[i] = ler[count];
-            count++;
-            i++;
-        }
-        recebe[i] = '\0';
-        p[k].altura = atof(recebe);
-        count++;
-        for (int i = 0; i < 2; i++)
-        {
-            recebe[i] = ler[count];
-            count++;
-        }
-        i = 2;
-        recebe[i] = '\0';
-        p[k].idade = atoi(recebe);
-        k++;
-    }
-}
-
 No *criaNo(Pessoa dado)
 {
     No *elemento = (No *)malloc(sizeof(No));
@@ -96,19 +61,53 @@ void comecaArvore(ABB *tree, Pessoa dado)
 {
     tree->raiz = inserirABB(tree->raiz, dado);
 }
-
-No *buscaABB(No *raiz, Pessoa dado)
+void LeArquivo(FILE *fp, Pessoa *p, ABB *tree)
+{
+    char ler[100], recebe[20];
+    int k = 0;
+    while (fgets(ler, sizeof(ler), fp) != NULL)
+    {
+        int count = 0, i = 0;
+        while (ler[count] != ',')
+        {
+           p->nome[count] = ler[count];
+            count++;
+        }
+        p->nome[count] = '\0';
+        count++;
+        while (ler[count] != ',')
+        {
+            recebe[i] = ler[count];
+            count++;
+            i++;
+        }
+        recebe[i] = '\0';
+        p->altura = atof(recebe);
+        count++;
+        for (int i = 0; i < 2; i++)
+        {
+            recebe[i] = ler[count];
+            count++;
+        }
+        i = 2;
+        recebe[i] = '\0';
+        p->idade = atoi(recebe);
+        k++;
+        comecaArvore(tree,*p);  //Passo o conteudo de p
+    }
+}
+No *buscaABB(No *raiz, int dado)
 {
     // Casos base da minha recursao
 
-    if (raiz->dado.idade == dado.idade)
+    if (raiz->dado.idade == dado)
         return raiz;
     if (raiz == NULL)
         return NULL;
 
-    if (dado.idade < raiz->dado.idade) // Caso a idade da pessoa que busco seja menor do que a idade da pessoa que estou
+    if (dado < raiz->dado.idade) // Caso a idade da pessoa que busco seja menor do que a idade da pessoa que estou
         return buscaABB(raiz->esq, dado);
 
-    if (dado.idade > raiz->dado.idade) // Caso a idade da pessoa que busco seja maior do que a idade da pessoa que estou
+    if (dado > raiz->dado.idade) // Caso a idade da pessoa que busco seja maior do que a idade da pessoa que estou
         return buscaABB(raiz->dir, dado);
 }
