@@ -3,7 +3,6 @@
 Este projeto implementa um sistema simples de gerenciamento de pessoas utilizando:
 
 - **Leitura de dados a partir de um arquivo CSV**
-- **Armazenamento em vetor dinâmico**
 - **Inserção dos dados em uma Árvore Binária de Busca (ABB)**
 - **Busca eficiente dentro da árvore**
 - **Remoção opcional de um elemento encontrado**
