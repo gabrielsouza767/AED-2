@@ -1,4 +1,4 @@
-# 📄 **Trabalho de Estrutura de Dados — ABB com Vetor Dinâmico e Leitura de CSV**
+# 📄 **Trabalho de Estrutura de Dados — ABB e Leitura de CSV**
 
 Este projeto implementa um sistema simples de gerenciamento de pessoas utilizando:
 
