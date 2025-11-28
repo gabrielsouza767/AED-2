@@ -28,15 +28,15 @@ int main(int argc, char const *argv[])
             printf("----------------------------------------\n");
             printf("Deseja remove-la? (s/n)");
             scanf("%c ", &escolha);
-            if (escolha == 's' || escolha == 'S')
-                remove();
-            else
-                printf("Muito obrigado!");
+           // if (escolha == 's' || escolha == 'S')
+              //  remove();
+           // else
+            printf("Muito obrigado!");
         }
         else
             printf("Pessoa não encontrada! \n");
         printf("Deseja buscar mais alguem? (s/n)");
-        scanf(" %c", &escolha);
+        scanf("%c ", &escolha);
         if (escolha == 'n' || escolha == 'N')
             flag = 1;
         
