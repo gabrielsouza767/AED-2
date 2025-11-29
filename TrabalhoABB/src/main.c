@@ -27,19 +27,23 @@ int main(int argc, char const *argv[])
             printf("Altura: %.2f \n", pessoaEncontrada->dado.altura);
             printf("----------------------------------------\n");
             printf("Deseja remove-la? (s/n)");
-            scanf("%c ", &escolha);
-           // if (escolha == 's' || escolha == 'S')
-              //  remove();
-           // else
-            printf("Muito obrigado!");
+            scanf(" %c", &escolha);
+            if (escolha == 's' || escolha == 'S')
+            {
+                tree.raiz = remover(tree.raiz, pessoaEncontrada);
+                printf("Pessoa removida com sucesso!\n");
+                imprimir(tree.raiz);
+            }
+            else
+                printf("Muito obrigado!");
         }
         else
             printf("Pessoa não encontrada! \n");
         printf("Deseja buscar mais alguem? (s/n)");
-        scanf("%c ", &escolha);
+        scanf(" %c", &escolha);
         if (escolha == 'n' || escolha == 'N')
             flag = 1;
-        
+
     } while (!flag);
     fclose(fp);
     return 0;

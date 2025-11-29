@@ -124,7 +124,7 @@ No *menorElemento(No *raiz)
  * @param pessoa é o Nó em que esta a pessoa que desejo remover
  * @brief A função de remover é recursiva pois preciso chegar ao nó que desejo remover, e ao retornar, já retorno ao pai o neto por exemplo,
  *  ou NULL se for uma folha, sem precisar fazer uma função de buscar o pai do nó que removerei.
-*/
+ */
 No *remover(No *raiz, No *pessoa)
 {
     // Casos base
@@ -136,33 +136,47 @@ No *remover(No *raiz, No *pessoa)
 
     else if (raiz->dado.idade < pessoa->dado.idade) // Se o nó onde estou é menor do q o nó que quero remover, vou para a direita
         raiz->dir = remover(raiz->dir, pessoa);
-    else    //Se for igual
+    else // Se for igual
     {
         // Casos base,folhas, nós com apenas um filho ou nós com 2 filhos
         /**
          * Este caso já serve para as folhas e unico filho, pois se for uma folha, irá satisfazer a condição de pessoa->dir == NULL, e por ser uma folha
          * já ira retornar o pessoa->esq que é NULL tambem.
          * E por ser uma recursao, já retorna ao pai do nó que desejo remover, o filho ou se for uma folha, NULL.
-        */
+         */
 
-        if (raiz->dir == NULL)  // Caso o no que desejo remover tenha apenas um filho a esquerda
+        if (raiz->dir == NULL) // Caso o no que desejo remover tenha apenas um filho a esquerda
         {
-            No *aux= raiz->esq;
+            No *aux = raiz->esq;
             free(raiz);
             return aux;
         }
-        else if(raiz->esq == NULL)  // Caso o nó que desejo remover tenha apenas um filho a direita
+        else if (raiz->esq == NULL) // Caso o nó que desejo remover tenha apenas um filho a direita
         {
-            No *aux= raiz->dir;
+            No *aux = raiz->dir;
             free(raiz);
             return aux;
         }
-        else{
+        else
+        {
             No *menorElem = menorElemento(raiz->dir);
-            raiz->dado= menorElem->dado;
+            raiz->dado = menorElem->dado;
             raiz->dir = remover(raiz->dir, menorElem);
         }
-
     }
     return raiz;
+}
+
+No *imprimir(No *raiz)
+{
+    // Caso base
+    if (raiz == NULL)
+        return NULL;
+    imprimir(raiz->dir);
+    printf("----------------------------------------\n");
+    printf("Nome: %s \n", raiz->dado.nome);
+    printf("Idade: %d \n", raiz->dado.idade);
+    printf("Altura: %.2f \n", raiz->dado.altura);
+    printf("----------------------------------------\n");
+    imprimir(raiz->esq);
 }
