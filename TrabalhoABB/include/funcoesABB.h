@@ -119,55 +119,50 @@ No *menorElemento(No *raiz)
         aux = aux->esq;
     return aux;
 }
-
-No *burcarPai(No *raiz, No *pessoa)
+/**
+ * @param Raiz é o Nó a ser encontrado na recursao para fazer e remoção
+ * @param pessoa é o Nó em que esta a pessoa que desejo remover
+ * @brief A função de remover é recursiva pois preciso chegar ao nó que desejo remover, e ao retornar, já retorno ao pai o neto por exemplo,
+ *  ou NULL se for uma folha, sem precisar fazer uma função de buscar o pai do nó que removerei.
+*/
+No *remover(No *raiz, No *pessoa)
 {
     // Casos base
-    if (raiz == NULL || pessoa == raiz)
+    if (raiz == NULL)
         return NULL; // Raiz não tem pai
-
-    if (raiz->dir == pessoa || raiz->esq == pessoa)
-        return raiz;
-
     // Casos de recursao
-    if (raiz->dado.idade > pessoa->dado.idade)
-        return buscarPai(raiz->esq, pessoa);
+    if (raiz->dado.idade > pessoa->dado.idade) // Se o nó onde estou é maior do q o o nó que quero remover, sei que tenho que ir para a esquerda
+        raiz->esq = remover(raiz->esq, pessoa);
 
-    if (raiz->dado.idade < pessoa->dado.idade)
-        return buscarPai(raiz->dir, pessoa);
-
-    return NULL;
-}
-void remover(No *raiz, No *pessoa)
-{
-    No *neto, *pai = buscarPai(raiz, pessoa);
-    // Casos base,folhas, nós com apenas um filho ou nós com 2 filhos
-    if (pessoa->dir == NULL && pessoa->esq == NULL) // Caso seja um folha da minha arvore
+    else if (raiz->dado.idade < pessoa->dado.idade) // Se o nó onde estou é menor do q o nó que quero remover, vou para a direita
+        raiz->dir = remover(raiz->dir, pessoa);
+    else    //Se for igual
     {
-        if (pai->esq == pessoa)
-            pai->esq = NULL;
-        else
-            pai->dir = NULL;
+        // Casos base,folhas, nós com apenas um filho ou nós com 2 filhos
+        /**
+         * Este caso já serve para as folhas e unico filho, pois se for uma folha, irá satisfazer a condição de pessoa->dir == NULL, e por ser uma folha
+         * já ira retornar o pessoa->esq que é NULL tambem.
+         * E por ser uma recursao, já retorna ao pai do nó que desejo remover, o filho ou se for uma folha, NULL.
+        */
 
-        free(pessoa);
-        return;
+        if (raiz->dir == NULL)  // Caso o no que desejo remover tenha apenas um filho a esquerda
+        {
+            No *aux= raiz->esq;
+            free(raiz);
+            return aux;
+        }
+        else if(raiz->esq == NULL)  // Caso o nó que desejo remover tenha apenas um filho a direita
+        {
+            No *aux= raiz->dir;
+            free(raiz);
+            return aux;
+        }
+        else{
+            No *menorElem = menorElemento(raiz->dir);
+            raiz->dado= menorElem->dado;
+            raiz->dir = remover(raiz->dir, menorElem);
+        }
+
     }
-
-    if (pessoa->dir == NULL) // Caso o no que desejo remover tenha apenas um filho a esquerda
-        neto = pessoa->esq;
-    else
-        neto = pessoa->dir; // Caso o nó que desejo remover tenha apenas um filho a direita
-    if (pai->esq == pessoa)
-    {
-        pai->esq = neto;    //Redireciono o neto para ser novo filho de pai
-        free(pessoa);
-        return;
-    } 
-    else
-    {
-        pai->dir = neto;
-        free(pessoa);
-        return;
-    }
-    
+    return raiz;
 }
