@@ -323,7 +323,7 @@ int contar_arestas_lista(GrafoLista *g)
     int cont = 0;
     for (int i = 0; i < g->num_vertices; i++)
     {
-        No *aux = g->adj[i];
+        No *aux = g->adj[i]->proximo; //Começo contando dps do vertice 
         while (aux != NULL)
         {
             cont++;
@@ -342,7 +342,7 @@ void imprimir_lista(GrafoLista *g)
     for (int i = 0; i < g->num_vertices; i++)
     {
         printf("%d -> ", i);
-        No *atual = g->adj[i];
+        No *atual = g->adj[i]->proximo; //Começo dps do vertice, onde realmente esta a lista de adj dele
         while (atual != NULL)
         {
             printf("%d -> ", atual->vertice);

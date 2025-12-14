@@ -79,7 +79,7 @@ int main()
     // =============================================================
     printf("\n=== GRAPH CITY (LISTA 10x10) ===\n");
     imprimir_lista(g);
-    printf("Total de arestas (lista): %d (Esperado: 230)\n", contar_arestas_lista(g));
+    printf("Total de arestas (lista): %d (Esperado: 180)\n", contar_arestas_lista(g));
 
     // =============================================================
     // DIJKSTRA
