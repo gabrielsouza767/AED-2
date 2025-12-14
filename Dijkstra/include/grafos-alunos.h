@@ -97,16 +97,10 @@ Heap *inserirHeap(No *vertice, Heap *h)
  */
 Heap *decrease_Key(No *vertice, Heap *h)
 {
-    int pai, i = -1; // Para caso eu nn encontre o nó
-    for (int j = 0; j < h->tamanho; j++)
-    {
-        if (h->vetor[j]->vertice == vertice->vertice) // Achei o vertice
-        {
-            pai = (j - 1) / 2; // Achei o pai dele
-            i = j;             // Guardo o indice do vertice
-            break;
-        }
-    }
+    int pai, i = 0;
+    while (h->vetor[i]->vertice != vertice->vertice) // Achei o vertice
+        i++;
+    pai = (i - 1) / 2; // Achei o pai dele
 
     // HeapfyUp
     while (i > 0 && h->vetor[i]->custo < h->vetor[pai]->custo) // Enquanto o custo dele for menor que o do pai, ele tem que subir
@@ -143,7 +137,7 @@ No *popmin(Heap *h)
         filhoDir = (2 * i) + 2;
 
         // não tem filho -> chegou numa folha
-        //Pois pela conta filhoesq=(2*i)+1 e flhodir=(2*i)+2, se o esquerdo ja passou do tamanho da Heap, impossivel ter um filho a direita
+        // Pois pela conta filhoesq=(2*i)+1 e flhodir=(2*i)+2, se o esquerdo ja passou do tamanho da Heap, impossivel ter um filho a direita
         if (filhoEsq >= h->tamanho)
             break;
 
@@ -185,27 +179,27 @@ No *popmin(Heap *h)
 int isMinHeap(Heap *h)
 {
     int filhoEsq, filhoDir;
-    for (int i = 0; i < h->tamanho-1; i++)    //Percorrer minha Heap
+    for (int i = 0; i < h->tamanho - 1; i++) // Percorrer minha Heap
     {
         filhoEsq = (2 * i) + 1, filhoDir = (2 * i) + 2;
-        if (filhoEsq < h->tamanho)      //Se existe um filho a esquerda
+        if (filhoEsq < h->tamanho) // Se existe um filho a esquerda
         {
-            if (h->vetor[i]->custo > h->vetor[filhoEsq]->custo) //Se o pai do filho a esquerda é maior que ele,logo a Heap esta errada
+            if (h->vetor[i]->custo > h->vetor[filhoEsq]->custo) // Se o pai do filho a esquerda é maior que ele,logo a Heap esta errada
             {
                 printf("Heap inválida!...\n");
                 return -1;
             }
         }
-        if (filhoDir < h->tamanho)      //Se existe um filho a direita
+        if (filhoDir < h->tamanho) // Se existe um filho a direita
         {
-            if (h->vetor[i]->custo > h->vetor[filhoDir]->custo)     //Se o pai do filho a direita é maoior que ele, logo a Heap esta errada
+            if (h->vetor[i]->custo > h->vetor[filhoDir]->custo) // Se o pai do filho a direita é maoior que ele, logo a Heap esta errada
             {
                 printf("Heap inválida!...\n");
                 return -1;
             }
         }
     }
-    return 1;   //Heap esta correta
+    return 1; // Heap esta correta
 }
 
 // ============================================================================
@@ -282,19 +276,19 @@ GrafoLista *criar_grafo_lista(int n)
     g->adj = (No **)malloc(g->num_vertices * sizeof(No *)); // Deixei como num_vertices pois fica mais facil de ver q aloco 1 lista para cada vertice do meu grafo
     for (int i = 0; i < n; i++)
     {
-        g->adj[i] = (No*)malloc(sizeof(No));    //Aloquei um nó para carregar consigo as informações do vertice, e o vertice ->prox é onde começa sua lista de adj
+        g->adj[i] = (No *)malloc(sizeof(No)); // Aloquei um nó para carregar consigo as informações do vertice, e o vertice ->prox é onde começa sua lista de adj
         g->adj[i]->vertice = i;
-        g->adj[i]->custo= 0;
+        g->adj[i]->custo = 0;
         g->adj[i]->peso = 0;
-        g->adj[i]->pred =-1;
-        g->adj[i]->proximo =NULL;
+        g->adj[i]->pred = -1;
+        g->adj[i]->proximo = NULL;
     }
     return g;
 }
 /**
  * @brief faço o lista->proximo receber o novo elemento pois, na minha lista, o indice dela em si é o meu vertice, ent onde realmente se inicia
  * a lista de adj do vertice seria o vertice->proximo, ou (*lista)->prox
-*/
+ */
 void inserir_na_lista(No **lista, int vizinho, int peso)
 {
     No *elemento = (No *)malloc(sizeof(No));
@@ -305,7 +299,7 @@ void inserir_na_lista(No **lista, int vizinho, int peso)
     }
     elemento->vertice = vizinho;
     elemento->peso = peso;
-    elemento->proximo = (*lista)->proximo;  //O proximo do novo elemento é a antiga cabeça da lista de adj do vertice
+    elemento->proximo = (*lista)->proximo; // O proximo do novo elemento é a antiga cabeça da lista de adj do vertice
     (*lista)->proximo = elemento;
     // TODO: Inserir novo nó no início da lista encadeada
 }
@@ -376,46 +370,46 @@ void destruir_grafo_lista(GrafoLista *g)
 
 void Dijkstra(GrafoLista *g, No *s, int capacidade)
 {
-    Heap *h = criandoHeap(capacidade); 
-    
+    Heap *h = criandoHeap(capacidade);
+
     // 1. Inicializa todos os nós principais e insere na Heap
     for (int i = 0; i < g->num_vertices; i++)
     {
-        g->adj[i]->custo = MAX_INT;     //Custo infinito para todos os vertices
-        g->adj[i]->pred = -1;           //o predessessor / pai com o  -1
-        inserirHeap(g->adj[i], h);      //Insiro na Heap
+        g->adj[i]->custo = MAX_INT; // Custo infinito para todos os vertices
+        g->adj[i]->pred = -1;       // o predessessor / pai com o  -1
+        inserirHeap(g->adj[i], h);  // Insiro na Heap
     }
     isMinHeap(h);
     // 2. O nó de origem s precisa ter custo 0 e o decrease_Key precisa ser aplicado no NÓ PRINCIPAL
     // O ponteiro 's' DEVE ser um dos nós principais
-    s->custo = 0;   //Origem do grafo
+    s->custo = 0; // Origem do grafo
     decrease_Key(s, h);
-    isMinHeap(h);   //Verifico se minha Heap esta corrreta dps do primeiro decrease 
+    isMinHeap(h); // Verifico se minha Heap esta corrreta dps do primeiro decrease
     while (h->tamanho > 0)
     {
         No *u = popmin(h); // 'u' é o NÓ PRINCIPAL (com custo, pred)
-        isMinHeap(h);   //Verifico se minha Heap esta correta dps do popMin
+        isMinHeap(h);      // Verifico se minha Heap esta correta dps do popMin
         // elemento recebe o PRIMEIRO vizinho. u->vertice é o índice.
         // elemento_vizinho aponta para o primeiro item da lista de adjacência de 'u'.
-        No *elemento_vizinho = u->proximo; 
+        No *elemento_vizinho = u->proximo;
 
-        while (elemento_vizinho != NULL) //Percorro na lista de adjacencias de 'u'
+        while (elemento_vizinho != NULL) // Percorro na lista de adjacencias de 'u'
         {
             // 'v_principal' é o vertice correspondente vizinho de 'u', que está na Heap.
-            No *v_principal = g->adj[elemento_vizinho->vertice]; 
-            int peso = elemento_vizinho->peso;  //peso da aresta
-            
+            No *v_principal = g->adj[elemento_vizinho->vertice];
+            int peso = elemento_vizinho->peso; // peso da aresta
+
             // Relaxamento
             if (v_principal->custo > u->custo + peso)
             {
                 v_principal->custo = u->custo + peso;
                 v_principal->pred = u->vertice;
-                
+
                 // É essencial usar o 'v_principal' (o nó que está na Heap) para decrease_Key
-                decrease_Key(v_principal, h); 
-                isMinHeap(h);   //Verifico se minha Heap esta correta dps do decrease
+                decrease_Key(v_principal, h);
+                isMinHeap(h); // Verifico se minha Heap esta correta dps do decrease
             }
-            elemento_vizinho = elemento_vizinho->proximo; 
+            elemento_vizinho = elemento_vizinho->proximo;
         }
     }
     // Destruir Heap no final
